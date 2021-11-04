@@ -10,7 +10,6 @@ interface Props {
 }
 
 export default function index({ articles }: Props): ReactElement {
-	console.log(articles);
 	return (
 		<Layout>
 			<div>
