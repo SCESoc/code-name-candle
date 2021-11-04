@@ -3,17 +3,19 @@ import React, { ReactElement } from 'react'
 import Link from 'next/link'
 import { getAllArticleData } from '@lib/articles';
 import Layout from '@components/Layout';
+import { Article } from 'types/article';
 
 interface Props {
-	articles: any;
+	articles: Article[];
 }
 
 export default function index({ articles }: Props): ReactElement {
+	console.log(articles);
 	return (
 		<Layout>
 			<div>
-				{articles.map((article: any) => (
-					<Link href={'/articles/' + article} key={article}>{article}</Link>
+				{articles.map((article: Article) => (
+					<Link href={'/articles/' + article.file} key={article.id}>{article.title}</Link>
 				))}
 			</div>
 		</Layout>
