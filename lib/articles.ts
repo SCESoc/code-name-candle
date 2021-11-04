@@ -11,9 +11,7 @@ export async function getAllArticleData() {
 		return articles.map((article: Article) => {
 			// return fileName.replace(/\.md$/, "")
 			return {
-				params: {
-					...article
-				},
+				...article
 			};
 		});
 	}
@@ -51,7 +49,7 @@ export async function getAllArticleIds() {
 
 export async function getArticle(id: string): Promise<string> {
 	const rawContent = await fetch(
-		'http://localhost:5000/articles/' + id + '.md'
+		'http://localhost:5000/articles/' + id + '.mdx'
 	);
 	const markdown = await rawContent.text();
 
