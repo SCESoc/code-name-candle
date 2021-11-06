@@ -3,15 +3,16 @@ import { getAllArticleIds, getArticle } from '@lib/articles';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { ReactElement } from 'react'
+import { ArticleData } from 'types/article';
 
 interface Props {
-	article: string
+	article: ArticleData
 }
 
 export default function Article({ article }: Props): ReactElement {
 	return (
 		<Layout>
-			<div dangerouslySetInnerHTML={{ __html: article }} />
+			<article className="prose lg:prose-xl" dangerouslySetInnerHTML={{ __html: article.contentHtml }} />
 		</Layout>
 	)
 }

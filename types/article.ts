@@ -1,4 +1,4 @@
-export type Article = {
+export type ArticleData = {
 	id: string;
 	title: string;
 	file: string;
@@ -10,7 +10,7 @@ export type Article = {
 	image: string;
 	description: string;
 	author: string,
-	// contentHtml: string;
+	contentHtml: string;
 };
 
 export type ReadingTime = {
