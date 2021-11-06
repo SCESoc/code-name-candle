@@ -13,7 +13,7 @@ interface Props {
 export default function Article({ article }: Props): ReactElement {
 	return (
 		<Layout>
-			<article className="prose lg:prose-xl">
+			<article className="prose lg:prose-xl max-w-4xl">
 				<h1>{article.title}</h1>
 				<p className='flex space-x-5'>
 					<span>{article.author}</span>
