@@ -13,7 +13,7 @@ export default function NavBar({ }: Props): ReactElement {
 				<Link href='/'><a>Candle</a></Link>
 				<ul className='space-x-5 flex'>
 					<NavBarItem href='#'>Home</NavBarItem>
-					<NavBarItem href='#'>About</NavBarItem>
+					<NavBarItem href='/articles'>Articles</NavBarItem>
 					<NavBarItem href='#'>Contact</NavBarItem>
 				</ul>
 			</div>

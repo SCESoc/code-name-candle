@@ -15,7 +15,9 @@ export default function index({ articles }: Props): ReactElement {
 			<div>
 				{articles.map((article: ArticleData) => (
 					<div key={article.id}>
-						<Link href={'/articles/' + article.id}>{article.title}</Link>
+						<Link href={'/articles/' + article.id}>
+							<a>{article.title}</a>
+						</Link>
 					</div>
 				))}
 			</div>
