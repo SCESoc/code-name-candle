@@ -1,3 +1,16 @@
+export type ArticleMatterData = {
+	id: string;
+	title: string;
+	publishedAt: string;
+	updatedAt: string;
+	tags: string[];
+	readingTime: ReadingTime;
+	image: string;
+	description: string;
+	author: string,
+	contentHtml: string;
+};
+
 export type ArticleData = {
 	id: string;
 	title: string;

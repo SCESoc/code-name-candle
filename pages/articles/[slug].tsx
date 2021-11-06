@@ -1,16 +1,25 @@
 import Layout from '@components/Layout';
 import { getAllArticleIds, getArticle } from '@lib/articles';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Image from 'next/image'
 import { ParsedUrlQuery } from 'querystring';
-import { ReactElement } from 'react'
-import { ArticleData } from 'types/article';
+import { ReactElement, useMemo } from 'react'
+import { getMDXComponent } from "mdx-bundler/client";
+import { ArticleMatterData } from 'types/article';
+import { ArticleImage } from "@components/ArticleImage";
+import components from "@components/MDXComponents";
 
 interface Props {
-	article: ArticleData
+	article: ArticleMatterData
 }
 
 export default function Article({ article }: Props): ReactElement {
+	const Component = useMemo(
+		() => getMDXComponent(article.contentHtml),
+		[article.contentHtml]
+	);
+
+	console.log(article);
+
 	return (
 		<Layout>
 			<article className="prose lg:prose-xl max-w-4xl">
@@ -23,8 +32,18 @@ export default function Article({ article }: Props): ReactElement {
 					<h1>{article.title}</h1>
 					<p>{article.description}</p>
 				</div>
-				<Image src={article.image} width={896} height={500} objectFit='cover' alt="Cover picture"></Image>
-				<div dangerouslySetInnerHTML={{ __html: article.contentHtml }} />
+				<ArticleImage
+					src={article.image}
+					alt={`${article.title} Cover`}
+					width={896}
+					height={500}
+					priority={true}
+					objectFit="cover"
+				/>
+				<Component
+					className="my-10 leading-relaxed"
+					components={components}
+				/>
 			</article>
 		</Layout>
 	)
@@ -46,7 +65,6 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({
 	params,
 }) => {
 	const articleData = await getArticle(params!.slug as string);
-	console.log(articleData);
 	return {
 		props: {
 			article: articleData,

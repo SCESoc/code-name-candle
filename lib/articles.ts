@@ -1,6 +1,11 @@
-import marked from 'https://cdn.skypack.dev/marked';
-import hljs from 'https://cdn.skypack.dev/highlight.js';
-import { ArticleData } from 'types/article';
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeCodeTitles from "rehype-code-titles";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrism from "rehype-prism-plus";
+import readingTime from "reading-time";
+import { bundleMDX } from "mdx-bundler";
+import { ArticleData, ArticleMatterData } from 'types/article';
 
 export async function getAllArticleData() {
 	const response = await fetch(
@@ -8,12 +13,7 @@ export async function getAllArticleData() {
 	);
 	const articles = await response.json();
 	if (articles) {
-		return articles.map((article: ArticleData) => {
-			// return fileName.replace(/\.md$/, "")
-			return {
-				...article
-			};
-		});
+		return articles;
 	}
 	return [
 		{
@@ -47,33 +47,45 @@ export async function getAllArticleIds() {
 	];
 }
 
-export async function getArticle(id: string): Promise<ArticleData> {
+export async function getArticle(id: string): Promise<ArticleMatterData> {
 	const rawContent = await fetch(
 		'http://localhost:5000/articles/' + id + '.mdx'
 	);
 	let markdown = await rawContent.text();
 
-	markdown = markdown.replace(/^---$.*^---$/ms, '')
-
-	const response = await fetch(
-		'http://localhost:5000/articles/'
-	);
-
-	const articles = await response.json()
-	const article = articles.find((article: ArticleData) => {
-		if (article.id === id) {
-			return article;
-		}
-	});
-
-	marked.setOptions({
-		highlight: function (code: any, language: any) {
-			return hljs.highlight(code, { language }).value;
+	const { code, frontmatter } = await bundleMDX(markdown, {
+		xdmOptions(options) {
+			options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm];
+			options.rehypePlugins = [
+				...(options?.rehypePlugins ?? []),
+				rehypeSlug,
+				rehypeCodeTitles,
+				rehypePrism,
+				[
+					rehypeAutolinkHeadings,
+					{
+						properties: {
+							className: ["anchor"],
+						},
+					},
+				],
+			];
+			return options;
 		},
 	});
 
 	return {
-		contentHtml: marked(markdown),
-		...article,
-	}
+		id,
+		contentHtml: code,
+		readingTime: readingTime(markdown),
+		...(frontmatter as {
+			publishedAt: string;
+			updatedAt: string;
+			title: string;
+			image: string;
+			description: string;
+			tags: string[];
+			author: string;
+		}),
+	};
 }
