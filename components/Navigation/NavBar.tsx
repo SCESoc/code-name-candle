@@ -9,7 +9,7 @@ interface Props {
 export default function NavBar({ }: Props): ReactElement {
 	return (
 		<nav className='bg-green-300 flex justify-center'>
-			<div className='flex flex-1 justify-between max-w-screen-lg'>
+			<div className='flex flex-1 justify-between max-w-4xl'>
 				<Link href='/'><a>Candle</a></Link>
 				<ul className='space-x-5 flex'>
 					<NavBarItem href='#'>Home</NavBarItem>

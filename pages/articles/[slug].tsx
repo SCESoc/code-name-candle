@@ -18,8 +18,6 @@ export default function Article({ article }: Props): ReactElement {
 		[article.contentHtml]
 	);
 
-	console.log(article);
-
 	return (
 		<Layout>
 			<article className="prose lg:prose-xl max-w-4xl">
