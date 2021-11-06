@@ -6,7 +6,7 @@ interface Props {
 
 export default function Body({ children }: Props): ReactElement {
 	return (
-		<main className='bg-gray-100 w-full flex-grow flex self-center max-w-4xl'>
+		<main className='bg-gray-100 md:flex md:self-center max-w-full md:max-w-4xl'>
 			{children}
 		</main>
 	)

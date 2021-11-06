@@ -3,10 +3,10 @@ export type ArticleData = {
 	title: string;
 	file: string;
 	url: string;
-	publisedAt: string;
+	publishedAt: string;
 	updatedAt: string;
 	tags: string[];
-	readTime: ReadingTime;
+	readingTime: ReadingTime;
 	image: string;
 	description: string;
 	author: string,
