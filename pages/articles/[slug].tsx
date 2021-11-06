@@ -14,13 +14,15 @@ export default function Article({ article }: Props): ReactElement {
 	return (
 		<Layout>
 			<article className="prose lg:prose-xl max-w-4xl">
-				<h1>{article.title}</h1>
-				<p className='flex space-x-5'>
-					<span>{article.author}</span>
-					<span>{article.publishedAt}</span>
-					<span>{article.readingTime.text}</span>
-				</p>
-				<p>{article.description}</p>
+				<div className='text-center'>
+					<p className='flex justify-center space-x-5'>
+						<span>{article.author}</span>
+						<span>{article.publishedAt}</span>
+						<span>{article.readingTime.text}</span>
+					</p>
+					<h1>{article.title}</h1>
+					<p>{article.description}</p>
+				</div>
 				<Image src={article.image} width={896} height={500} objectFit='cover' alt="Cover picture"></Image>
 				<div dangerouslySetInnerHTML={{ __html: article.contentHtml }} />
 			</article>
