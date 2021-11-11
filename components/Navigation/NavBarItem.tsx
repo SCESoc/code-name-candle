@@ -8,9 +8,9 @@ interface Props {
 
 export default function NavBarItem({ href, children }: Props): ReactElement {
 	return (
-		<li>
+		<li className='flex'>
 			<Link href={href}>
-				<a>{children}</a>
+				<a className='self-center text-md font-extrabold pt-2 uppercase'>{children}</a>
 			</Link>
 		</li>
 	)

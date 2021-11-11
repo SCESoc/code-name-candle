@@ -16,7 +16,7 @@ class MyDocument extends Document {
 						rel="stylesheet"
 					/>
 				</Head>
-				<body>
+				<body className='bg-[#1b1b33] text-[#FBFBFB]'>
 					<Main />
 					<NextScript />
 				</body>
