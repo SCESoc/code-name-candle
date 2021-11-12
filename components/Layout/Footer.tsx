@@ -12,7 +12,7 @@ export default function Footer({ }: Props): ReactElement {
 				<FooterLinkItem href='https://www.scesoc.ca/'>SCESoc</FooterLinkItem>
 				<FooterLinkItem href='https://makers.scesoc.ca/'>Makers Club</FooterLinkItem>
 				<FooterLinkItem href='https://www.scesoc.ca/discord/'>Discord</FooterLinkItem>
-				<FooterLinkItem href='https://github.com/SCESoc/'>Github</FooterLinkItem>
+				<FooterLinkItem href='https://github.com/SCESoc/code-name-candle'>Github</FooterLinkItem>
 			</div>
 		</footer>
 	)
@@ -26,7 +26,7 @@ interface FooterLinkProps {
 function FooterLinkItem({ href, children }: FooterLinkProps): ReactElement {
 	return (
 		<li className='flex'>
-			<a target="_blank" className='self-center text-sm md:text-lg font-bold pt-2 uppercase'>{children}</a>
+			<a target="_blank" rel="noreferrer" href={href} className='self-center text-sm md:text-lg font-bold pt-2 uppercase'>{children}</a>
 		</li>
 	)
 }
