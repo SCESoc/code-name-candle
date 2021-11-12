@@ -32,7 +32,7 @@ export const ArticleItem = ({ article }: Props) => {
 								<div className='text-gray-300 text-sm'>{article.publishedAt}</div>
 							</span>
 						</div>
-						<span className='text-gray-300 text-sm self-center'>{article.readingTime.text}</span>
+						<span className='line-clamp-1 text-gray-300 text-sm self-center min-w-max'>{article.readingTime.text}</span>
 					</div>
 				</div>
 			</a>
