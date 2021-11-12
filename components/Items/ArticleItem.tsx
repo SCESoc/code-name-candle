@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import { ArticleData } from 'types/article'
 import { TagItem } from './TagItem'
+import { Avatar } from '@components/Avatar'
 
 interface Props {
 	article: ArticleData
@@ -25,10 +26,9 @@ export const ArticleItem = ({ article }: Props) => {
 					</div>
 					<div className='flex justify-between'>
 						<div className='flex space-x-2'>
-							<div className='bg-gray-700 h-10 w-10 rounded-full'>
-							</div>
+							<Avatar name={article.author} />
 							<span>
-								<div className='text-gray-300 text-sm'>{article.author}</div>
+								<div className='line-clamp-1 text-gray-300 text-sm'>{article.author}</div>
 								<div className='text-gray-300 text-sm'>{article.publishedAt}</div>
 							</span>
 						</div>
