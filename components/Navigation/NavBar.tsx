@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import NavBarItem from './NavBarItem'
+import ThemeToggle from '@components/ThemeToggle'
 
 interface Props {
 
@@ -19,6 +20,7 @@ export default function NavBar({ }: Props): ReactElement {
 					<NavBarItem href='#'>Home</NavBarItem>
 					<NavBarItem href='#'>About</NavBarItem>
 				</ul>
+				<ThemeToggle />
 			</div>
 		</nav>
 	)

@@ -21,7 +21,7 @@ export default function Article({ article }: Props): ReactElement {
 	return (
 		<Layout>
 			<div className="flex flex-1 justify-center my-10">
-				<article className="prose lg:prose-xl prose-light max-w-4xl">
+				<article className="prose lg:prose-xl dark:prose-light max-w-4xl">
 					<div className='text-center'>
 						<p className='flex justify-center space-x-5'>
 							<span>{article.author}</span>

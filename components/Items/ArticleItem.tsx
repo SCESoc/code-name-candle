@@ -17,7 +17,7 @@ export const ArticleItem = ({ article }: Props) => {
 					<Image className='rounded-2xl' src={article.image} objectFit='cover' height={200} width={384} alt={article.title} />
 					<h2 className='line-clamp-2 text-2xl font-semibold'>{article.title}</h2>
 					<div className='flex-grow'>
-						<p className='line-clamp-5 text-gray-300 text-md'>{article.description}</p>
+						<p className='line-clamp-5 text-gray-600 dark:text-gray-300 text-md'>{article.description}</p>
 					</div>
 					<div>
 						{article.tags.map((tag) => (
@@ -28,11 +28,11 @@ export const ArticleItem = ({ article }: Props) => {
 						<div className='flex space-x-2'>
 							<Avatar name={article.author} />
 							<span>
-								<div className='line-clamp-1 text-gray-300 text-sm'>{article.author}</div>
-								<div className='text-gray-300 text-sm'>{article.publishedAt}</div>
+								<div className='line-clamp-1 text-gray-600 dark:text-gray-300 text-sm'>{article.author}</div>
+								<div className='text-gray-600 dark:text-gray-300 text-sm'>{article.publishedAt}</div>
 							</span>
 						</div>
-						<span className='line-clamp-1 text-gray-300 text-sm self-center min-w-max'>{article.readingTime.text}</span>
+						<span className='line-clamp-1 text-gray-600 dark:text-gray-300 text-sm self-center min-w-max'>{article.readingTime.text}</span>
 					</div>
 				</div>
 			</a>
