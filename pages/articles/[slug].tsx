@@ -7,6 +7,8 @@ import { getMDXComponent } from "mdx-bundler/client";
 import { ArticleMatterData } from 'types/article';
 import { ArticleImage } from "@components/ArticleImage";
 import components from "@components/MDXComponents";
+import { Avatar } from '@components/Avatar';
+import Date from '@components/Formatters/Date';
 
 interface Props {
 	article: ArticleMatterData
@@ -23,11 +25,24 @@ export default function Article({ article }: Props): ReactElement {
 			<div className="flex flex-1 justify-center my-10">
 				<article className="prose lg:prose-xl dark:prose-light max-w-4xl">
 					<div className='text-center'>
-						<p className='flex justify-center space-x-5'>
-							<span>{article.author}</span>
+						<small className="flex justify-center align-middle dark:text-green-500 my-5">
+							<span>
+								<Avatar name={article.author} size={28} />
+							</span>
+							<span>&nbsp;Dharsh</span>
+							<span>&nbsp;&bull;&nbsp;</span>
+							<Date dateString={article.publishedAt} />
+							<span>&nbsp;&bull;&nbsp;</span>
+							<span>{article.readingTime.text}</span>
+						</small>
+						{/* <p className='flex justify-center space-x-5 text-md'>
+							<span className='flex align-middle space-x-2'>
+								<Avatar name={article.author} />
+								<span>{article.author}</span>
+							</span>
 							<span>{article.publishedAt}</span>
 							<span>{article.readingTime.text}</span>
-						</p>
+						</p> */}
 						<h1>{article.title}</h1>
 						<p>{article.description}</p>
 					</div>

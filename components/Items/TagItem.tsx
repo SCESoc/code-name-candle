@@ -6,7 +6,7 @@ interface Props {
 
 export const TagItem = ({ children }: Props) => {
 	return (
-		<span key={children} className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2'>
+		<span key={children} className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 m-1'>
 			{children}
 		</span>
 	)
