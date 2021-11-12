@@ -17,8 +17,8 @@ export default function NavBar({ }: Props): ReactElement {
 					<span className='text-2xl font-black pt-2'>Torch</span>
 				</a></Link>
 				<ul className='space-x-5 flex'>
-					<NavBarItem href='#'>Home</NavBarItem>
-					<NavBarItem href='#'>About</NavBarItem>
+					<NavBarItem href='/'>Home</NavBarItem>
+					<NavBarItem href='/about'>About</NavBarItem>
 				</ul>
 				<ThemeToggle />
 			</div>
