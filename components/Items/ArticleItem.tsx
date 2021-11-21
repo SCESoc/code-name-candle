@@ -24,18 +24,6 @@ export const ArticleItem = ({ article }: Props) => {
 						{article.tags.map((tag) => (
 							<TagItem key={tag}>{tag}</TagItem>
 						))}
-						{article.tags.map((tag) => (
-							<TagItem key={tag}>{tag}</TagItem>
-						))}
-						{article.tags.map((tag) => (
-							<TagItem key={tag}>{tag}</TagItem>
-						))}
-						{article.tags.map((tag) => (
-							<TagItem key={tag}>{tag}</TagItem>
-						))}
-						{article.tags.map((tag) => (
-							<TagItem key={tag}>{tag}</TagItem>
-						))}
 					</div>
 					<div className='flex justify-between'>
 						<div className='flex space-x-2'>

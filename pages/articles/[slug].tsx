@@ -29,20 +29,12 @@ export default function Article({ article }: Props): ReactElement {
 							<span>
 								<Avatar name={article.author} size={28} />
 							</span>
-							<span>&nbsp;Dharsh</span>
+							<span>&nbsp;{article.author}</span>
 							<span>&nbsp;&bull;&nbsp;</span>
 							<Date dateString={article.publishedAt} />
 							<span>&nbsp;&bull;&nbsp;</span>
 							<span>{article.readingTime.text}</span>
 						</small>
-						{/* <p className='flex justify-center space-x-5 text-md'>
-							<span className='flex align-middle space-x-2'>
-								<Avatar name={article.author} />
-								<span>{article.author}</span>
-							</span>
-							<span>{article.publishedAt}</span>
-							<span>{article.readingTime.text}</span>
-						</p> */}
 						<h1>{article.title}</h1>
 						<p>{article.description}</p>
 					</div>
